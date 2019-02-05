@@ -12,17 +12,14 @@ const Container = styled.div`
 `;
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+
 
 
 
   render() {
     return (
       <Container>
-        <h1>Master Book List </h1>
+      
         <ConditionalView />
       </Container>
     );

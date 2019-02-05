@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Book from "./Book";
+import Axios from "axios";
 
 const Container = styled.div`
   border: 1px red solid;
@@ -21,14 +22,21 @@ export default class BookList extends React.Component {
 
   //function which is called the first time the component loads
   componentDidMount() {
-    this.getCustomerData();
+    this.getBookList();
   }
 
-  //Function to get the Customer Data from json
-  getCustomerData() {
-    // eventually need axios call axios.get('assets/samplejson/customerlist.json').then(response => {
-    this.setState({ bookList: bookList });
-  }
+  //Function to get the Data from the backend via json
+  getBookList() {
+ Axios
+.get("http://localhost:8000/api/book-collection/")
+//.get("https://statsapi.mlb.com/api/v1/people/660670/stats?stats=byDateRange&season=2018&group=hitting&startDate=&endDate=&leagueListId=mlb_milb")
+.then(res => {
+  console.log(res);
+  //  this.setState({ bookList: bookList });
+})
+  .catch(err => console.log(err));
+ 
+}
 
   render() {
     console.log("TS Booklist: ", this.state.bookList);
