@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Axios from "axios";
 
 import {
   Container,
@@ -40,6 +40,15 @@ import { FormControl } from "react-bootstrap";
 //     padding: 10px 25px;
 // `
 
+const style = {
+  height: "100vh"
+};
+
+//   const coverImg = {
+//   background-image: 'url(https://images.unsplash.com/photo-1488381297039-d6ee94af777e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)',
+//   background-size: 'cover',
+//   background-position: 'center',
+//   }
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -50,14 +59,25 @@ class Login extends Component {
   }
 
   handleInputChange = e => {
-    console.log("input change");
+   
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleLogin = e => {
-    console.log("Got to handler:  ", this.state.username);
-    const user = this.state.username;
-    localStorage.setItem("user", user);
+      console.log("Props available: ", this.props);
+      const baseUrl="http://localhost:8000/api/user-access/login/"
+    Axios
+    .post(baseUrl, this.state)
+
+      .then(res => {
+        console.log(res);
+        localStorage.setItem("jwt", res.data.token);
+        this.props.history.push('/BookList');
+        
+      })
+      .catch(err => console.log(err));
+    
+   
   };
 
   render() {
@@ -95,7 +115,7 @@ class Login extends Component {
             <NavbarBrand href="/">Bookr</NavbarBrand>
           </Container>
         </Navbar>
-        <Row className="cover row container-fluid p-0 m-0">
+        <Row style={style}>
           <Col className="col-xl-4 col-lg-5 col-md-6 col-sm-12 align-self-center cover-text text-center px-5 animated fadeIn">
             <a href="https://bookr-site.netlify.com/">
               <i className="fas fa-chevron-left" /> Back

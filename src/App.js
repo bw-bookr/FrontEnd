@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, Route, withRouter} from 'react-router-dom';
 
 import BookList from "./Components/BookList";
 
@@ -19,8 +20,9 @@ class App extends Component {
   render() {
     return (
       <Container>
-      
-        <ConditionalView />
+      <Route exact path='/' component={ConditionalView} />
+      <Route path = '/BookList' component={BookList} />
+ 
       </Container>
     );
   }
@@ -29,4 +31,4 @@ class App extends Component {
 const ConditionalView = Authenticate(BookList)(LoginPage);
 
 
-export default App;
+export default withRouter(App);

@@ -27,8 +27,14 @@ export default class BookList extends React.Component {
 
   //Function to get the Data from the backend via json
   getBookList() {
+    const token = localStorage.getItem("jwt");
+    const requestOptions = {
+      headers: {
+        authorization:token
+      }
+    }
  Axios
-.get("http://localhost:8000/api/book-collection/")
+.get("http://localhost:8000/api/book-collection/", requestOptions)
 //.get("https://statsapi.mlb.com/api/v1/people/660670/stats?stats=byDateRange&season=2018&group=hitting&startDate=&endDate=&leagueListId=mlb_milb")
 .then(res => {
   console.log(res);
