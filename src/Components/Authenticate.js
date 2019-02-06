@@ -9,7 +9,7 @@ class Authenticate extends Component {
     loggedIn: false
   };
 
-  componentWillMount() {
+  componentDidMount() {
     const usr = localStorage.getItem("jwt");
 
     if (usr === null) {
