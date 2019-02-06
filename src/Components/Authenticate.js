@@ -1,46 +1,33 @@
-import React from 'react';
 
 
-const Authenticate = BookList => LoginPage =>
-  class extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        loggedIn: false
-      };
-    }
-    componentDidMount() {
-      //(!localStorage.getItem('jwt')) ? this.setState({loggedIn:true}) : this.setState({loggedIn:false})
-      // if (!localStorage.getItem('jwt')) {
-      //   console.log("No jwt");
-      //   this.setState({ loggedIn: false });
-      // } else {
-      //   console.log("jwt exists");
-      //   this.setState({ loggedIn: true });
-      //   this.props.history.push('/BookList');
-      // }
-      const usr = localStorage.getItem('jwt');
-      console.log("USR -> ", usr);
-      if (usr != 'undefined' || usr != null) {
-        this.setState({ loggedIn: true}, () => {
-          console.log("STATE -> ", this.state.loggedIn);
-        });
-      } else {
-        this.setState({ loggedIn: false}, () => {
-          console.log("STATE -> ", this.state.loggedIn);
-        });
-      }
+import React, { Component } from "react";
+import BookList from "./BookList";
+import LoginPage from "./Login";
 
-
-
-
-
-    }
-    render() {
-      console.log("Check Render:  ", this.state.loggedIn);
-      if (this.state.loggedIn) return <BookList />;
-      return <LoginPage />;
-    }
+class Authenticate extends Component {
+  state = {
+    loggedIn: false
   };
+
+  componentWillMount() {
+    const usr = localStorage.getItem("jwt");
+
+    if (usr === null) {
+      this.props.history.push("/LoginPage");
+      this.setState({ loggedIn: false }, () => {});
+    } else {
+      this.props.history.push("/BookList");
+      this.setState({ loggedIn: true }, () => {});
+    }
+  }
+
+  render() {
+    if (this.state.loggedIn) {
+      return <BookList />;
+    }
+
+    return <LoginPage />;
+  }
+}
 
 export default Authenticate;

@@ -1,5 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardFooter,
+  CardSubtitle
+} from "reactstrap";
 
 import SingleBook from "./SingleBook";
 
@@ -16,15 +25,23 @@ const P = styled.p`
 `;
 
 const Book = props => {
+  console.log("Props in book.js:  ", props);
   return (
     <>
-     
-        <Cover src={props.Thumbnail} alt="Book Cover" />
-        <P>Title: {props.Title}</P>
-        <P>Author: {props.Author}</P>
-        <P>Publisher: {props.Publisher}</P>
-        <P>Description: {props.Description_Short}</P>
-     
+    <Card className="shadow">
+      <CardImg width="100%" src="https://via.placeholder.com/800x600.png" />
+      <CardBody>
+        <CardTitle><h5> {props.title}</h5> </CardTitle>
+        
+        <CardText> {props.short_description} </CardText>
+        </CardBody>
+        <CardFooter className="text-muted">{props.author} </CardFooter>
+      {/* <Cover src="http://dummyimage.com/100x100.png/cc0000/ffffff" alt="Book Cover" />
+        <P>Title: {props.title}</P>
+        <P>Author: {props.author}</P>
+        <P>Publisher: {props.publisher}</P>
+        <P>Description: {props.short_description}</P> */}
+        </Card>
     </>
   );
 };
