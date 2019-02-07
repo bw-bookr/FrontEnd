@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 
 import { FormControl } from "react-bootstrap";
+import { Link } from 'react-router-dom'
 
 
 
@@ -54,17 +55,18 @@ class Login extends Component {
     return (
   
       <>
+      <div className="container-fluid">
         <Navbar
           id="nav"
           className="navbar navbar-expand-lg fixed-top navbar-light nav-lg"
         >
           <Container>
-            <NavbarBrand href="/">Bookr</NavbarBrand>
+            <NavbarBrand href="https://bookrmarketing1.netlify.com/">Bookr</NavbarBrand>
           </Container>
         </Navbar>
         <Row style={style}>
           <Col className="col-xl-4 col-lg-5 col-md-6 col-sm-12 align-self-center cover-text text-center px-5 animated fadeIn">
-        
+        <a href='https://bookrmarketing1.netlify.com/' ><i class="fas fa-chevron-left"></i> Back</a>
             <h1>Login to Bookr</h1>
             <Form action="">
               <InputGroup className="input-group mb-3 input-group-lg">
@@ -106,6 +108,7 @@ class Login extends Component {
           </Col>
           <Col className="col-xl-8 col-lg-7 col-md-6 col-sm-12 cover-img" />
         </Row>
+        </div>
       </>
     );
   }

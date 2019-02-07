@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Book from "./Book";
 import Axios from "axios";
-import { Row, Col, Container } from "reactstrap";
-
-
+import { Row, Col, Navbar, NavbarBrand, Container } from "reactstrap";
 
 export default class BookList extends React.Component {
   constructor(props) {
@@ -42,19 +40,28 @@ export default class BookList extends React.Component {
   }
 
   render() {
-    console.log("TS Booklist: ", this.state.bookList);
     if (!this.state.bookList) return <p>Loading data</p>;
-
     return (
-      <Container>
-        <Row>
-          {this.state.bookList.map(book => (
-            <Col lg="4" md="6" style = {{marginBottom: "1rem"}} key={book.id}>
-              <Book {...book} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      <>
+        <Navbar
+          id="nav"
+          className="navbar navbar-expand-lg fixed-top navbar-light nav-lg bg-light"
+        >
+          <Container>
+            <NavbarBrand href="https://bookrmarketing1.netlify.com/">Bookr</NavbarBrand>
+          </Container>
+        </Navbar>
+          
+        <Container className="mt-5 pt-5">
+          <Row>
+            {this.state.bookList.map(book => (
+              <Col lg="4" md="6" style={{ marginBottom: "1rem" }} key={book.id}>
+                <Book {...book} />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </>
     );
   }
 }
