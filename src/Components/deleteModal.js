@@ -26,7 +26,7 @@ class ModalDelete extends React.Component {
           <ModalBody>
             <Row className="text-center">
               <Col xs="12" className="pb-2">
-              <i class="fas fa-exclamation-circle fa-5x text-danger animated pulse infinite"></i>
+              <i className="fas fa-exclamation-circle fa-5x text-danger animated pulse infinite"></i>
               </Col>
               <Col>
                 <p>Are you sure you want to delete this book?</p>

@@ -17,8 +17,6 @@ import {
 } from "reactstrap";
 
 import { FormControl } from "react-bootstrap";
-import { Link } from 'react-router-dom'
-
 
 
 const style = {
