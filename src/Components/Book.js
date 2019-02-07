@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import './Login.css';
 import {
   Card,
   CardImg,
@@ -18,8 +19,8 @@ const Book = props => {
   return (
    
     <>
-    <NavLink className="navlink" to={`/BookList/book/${props.id}`} >
-      <Card>
+    <NavLink style={{ textDecoration: 'none' }} className="text-dark" to={`/BookList/book/${props.id}`} >
+      <Card className="shadow">
         <CardImg width="100%" src="https://via.placeholder.com/400x200.png" />
         <CardBody>
           <CardTitle>
