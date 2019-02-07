@@ -1,79 +1,114 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import Axios from 'axios';
+
+import './Login.css';
+
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  Button,
+  Navbar,
+  NavbarBrand
+} from "reactstrap";
+
+import { FormControl } from "react-bootstrap";
 
 
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid #ffcb05;
-  color: #ffcb05;
-  margin: 1em;
-  padding: 0.25em 1em;
-`
-const Form = styled.form`
-    width: 500px;
-    background:  #00274c;
-    color: #ffcb05;
-    border-radius: 6px;
-    margin: 10px auto;
-    padding: 10px 25px;
-`
 
-const Input = styled.input`
-    width: 170px;
-    border-radius: 6px;
-    margin: 10px;
-    padding: 10px 25px;
-`
-
-
+const style = {
+  height: "100vh"
+};
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: ''
-        };
-    }
-
-    handleInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: ""
     };
+  }
 
-    handleLogin = e => {
-        const user = this.state.username;
-        localStorage.setItem('user', user);
-    };
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-    render() {
-        return (
-            <Form >
-                <h2> Please Login to Continue: </h2>
+  handleLogin = e => {
+    console.log("Props available: ", this.props);
+    const baseUrl = "https://bookr-app-backend.herokuapp.com/api/user-access/login";
+    Axios.post(baseUrl, this.state)
 
-                <Input
-                    type="text"
-                    placeholder="User Name"
-                    name="username"
-                    value={this.state.username}
-                    onChange={this.handleInputChange}
+      .then(res => {
+        console.log(res);
+        localStorage.setItem("jwt", res.data.token);
+        this.props.history.push("/");
+      })
+      .catch(err => console.log(err));
+  };
+
+  render() {
+    return (
+  
+      <>
+        <Navbar
+          id="nav"
+          className="navbar navbar-expand-lg fixed-top navbar-light nav-lg"
+        >
+          <Container>
+            <NavbarBrand href="/">Bookr</NavbarBrand>
+          </Container>
+        </Navbar>
+        <Row style={style}>
+          <Col className="col-xl-4 col-lg-5 col-md-6 col-sm-12 align-self-center cover-text text-center px-5 animated fadeIn">
+        
+            <h1>Login to Bookr</h1>
+            <Form action="">
+              <InputGroup className="input-group mb-3 input-group-lg">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText id="basic-addon1">
+                    <i className="far fa-user" />
+                  </InputGroupText>
+                </InputGroupAddon>
+                <FormControl
+                  type="text"
+                  placeholder="Username"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleInputChange}
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
                 />
-
-                <Input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.handleInputChange}
+              </InputGroup>
+              <InputGroup className="input-group mb-3 input-group-lg">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText id="basic-addon1">
+                    <i className="fas fa-key" />
+                  </InputGroupText>
+                </InputGroupAddon>
+                <FormControl
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  aria-label="Password"
+                  aria-describedby="basic-addon1"
                 />
-                <br />
-                <Button onClick={this.handleLogin}>
-                    Log In
-          </Button>
-
+              </InputGroup>
+              <Button color="primary" size="lg" onClick={this.handleLogin}>
+                Submit{" "}
+              </Button>
             </Form>
-        );
-    }
+          </Col>
+          <Col className="col-xl-8 col-lg-7 col-md-6 col-sm-12 cover-img" />
+        </Row>
+      </>
+    );
+  }
 }
 
-export default Login
+export default Login;

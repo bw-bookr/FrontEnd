@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import {  Route, withRouter} from 'react-router-dom';
 
 import BookList from "./Components/BookList";
+import SingleBook from "./Components/SingleBook";
 
 import styled from "styled-components";
 
@@ -12,24 +14,24 @@ const Container = styled.div`
 `;
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+
 
 
 
   render() {
     return (
       <Container>
-        <h1>Master Book List </h1>
-        <ConditionalView />
+      <Route exact path='/' component={Authenticate} />
+      <Route exact path = '/BookList' component={BookList} />
+      <Route path = '/LoginPage' component={LoginPage} />
+      <Route path = '/BookList/book/:id' render={props => <SingleBook {...props}/>} />
+      <Route path = '/SingleBook' component={SingleBook} />
       </Container>
     );
   }
 }
 
-const ConditionalView = Authenticate(BookList)(LoginPage);
+// const ConditionalView = Authenticate(BookList)(LoginPage);
 
 
-export default App;
+export default withRouter(App);

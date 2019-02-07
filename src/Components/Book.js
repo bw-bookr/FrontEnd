@@ -1,30 +1,39 @@
 import React from "react";
 import styled from "styled-components";
-
+import './Login.css';
+import {
+  Card,
+  CardImg,
+  CardLink,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardFooter,
+  CardSubtitle
+} from "reactstrap";
 import SingleBook from "./SingleBook";
-
-const Cover = styled.img`
-  margin: 0 auto;
-  padding: 10px;
-  width: 100px;
-  height: 100px;
-`;
-const P = styled.p`
-  line-height: 0.8;
-  margin-bottom: 2px;
-  overflow-wrap: anywhere;
-`;
+import { NavLink } from 'react-router-dom';
 
 const Book = props => {
+  console.log("Props:  ", props);
   return (
+   
     <>
-     
-        <Cover src={props.Thumbnail} alt="Book Cover" />
-        <P>Title: {props.Title}</P>
-        <P>Author: {props.Author}</P>
-        <P>Publisher: {props.Publisher}</P>
-        <P>Description: {props.Description_Short}</P>
-     
+    <NavLink style={{ textDecoration: 'none' }} className="text-dark" to={`/BookList/book/${props.id}`} >
+      <Card className="shadow">
+        <CardImg width="100%" src="https://via.placeholder.com/400x200.png" />
+        <CardBody>
+          <CardTitle>
+            <h5> {props.title}</h5>{" "}
+          </CardTitle>
+
+          <CardText> {props.short_description} </CardText>
+        </CardBody>
+       
+        <CardFooter style={{ color: "#5A6169" }}>{props.author} </CardFooter>
+        
+      </Card>
+      </NavLink>
     </>
   );
 };
