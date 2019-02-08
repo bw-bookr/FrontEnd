@@ -8,8 +8,6 @@ import {
   ModalFooter
 } from "reactstrap";
 
-
-
 class ModalAddReview extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +17,7 @@ class ModalAddReview extends React.Component {
       review: ""
     };
 
-    this.toggle = this.toggle.bind(this);
+     this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
@@ -76,6 +74,7 @@ class ModalAddReview extends React.Component {
               onClick={() =>
                 this.props.clickHandler(this.state.review, this.state.rating)
               }
+             
             >
               Submit
             </Button>

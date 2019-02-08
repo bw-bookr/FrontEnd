@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 ### `yarn start` - but first =>
 
-Prerequisites
+# Prerequisites
 You will need the following dependencies:
 
     "axios": "^0.18.0",
@@ -40,9 +40,9 @@ You will be take to the login page upon initialization
 
 We have 3 user names for demo purposes. They are:
 
-<nomadic>
-<expat>
-<mutiny>
+`nomadic
+expat
+mutiny`
 
 The password for all 3 is set to 'pass'
 

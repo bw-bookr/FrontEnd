@@ -13,7 +13,7 @@ import {
 import { NavLink } from 'react-router-dom';
 
 const Book = props => {
-  console.log("Props:  ", props);
+  
   return (
    
     <>
