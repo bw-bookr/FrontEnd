@@ -1,17 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+
 import './Login.css';
 import {
   Card,
   CardImg,
-  CardLink,
   CardText,
   CardBody,
   CardTitle,
-  CardFooter,
-  CardSubtitle
-} from "reactstrap";
-import SingleBook from "./SingleBook";
+  CardFooter
+ } from "reactstrap";
+
 import { NavLink } from 'react-router-dom';
 
 const Book = props => {
@@ -21,7 +19,7 @@ const Book = props => {
     <>
     <NavLink style={{ textDecoration: 'none' }} className="text-dark" to={`/BookList/book/${props.id}`} >
       <Card className="shadow">
-        <CardImg width="100%" src="https://via.placeholder.com/400x200.png" />
+        <CardImg width="100%" src={props.cover_url} height="400" width="200" />
         <CardBody>
           <CardTitle>
             <h5> {props.title}</h5>{" "}
