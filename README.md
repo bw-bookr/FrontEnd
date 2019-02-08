@@ -1,10 +1,32 @@
+# Bookr
+Find your latest read - the easy way
+
+## Getting Started
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start` - but first =>
+
+## Prerequisites
+You will need the following dependencies:
+
+    "axios": "^0.18.0",
+    "bootstrap": "^4.2.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.3",
+    "reactstrap": "^7.1.0",
+    "styled-components": "^4.1.3"
+
+
+## Installing
+After forking, clone a copy on your machine with the git clone <repo name> CLI
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,57 +34,54 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+`yarn start to start the local server on port 3000 (you can change the port if necessary)`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You will be taken to the login page upon initialization
 
-### `npm run build`
+We have 3 user names for demo purposes. They are:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* nomadic
+* expat
+* mutiny
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The password for all 3 is set to 'pass'
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You may adjust these names and/or add more by manipulating the backend portion of this same repo group
 
-### `npm run eject`
+After logging in, you will be taken to the main page wih a list of the books we are currently featuring. You will be shown a bried overview of the book. Simply click any book for more information including reviews. You will also be able to leave a review of your own.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you absolutely never want to see a book again on the list, use the delete function. It will be gone forever.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Deployment
 
-## Learn More
+You can see our deployment here:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+https://bookrmarketing1.netlify.com/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built With
+* HTML
+* CSS
+* Styled Components
+* Bootstrap, with Reactstrap and react-bootstrap
+* React
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Authors
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* Jeremy Boggs - Scrum Master
+* Dennis Orbison - Back End Developer
+* Kelli Rae Hanson - Front End Developer
+* Jamie Hall - Front End Developer
+* Joshua Keslar - UI Developer
+* Lukasz Siatka - UI Developer
+* Maksim Vakarchuk - UI Developer
 
-### Making a Progressive Web App
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Acknowledgements
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+A tip of the hat to Maksim Vakarchuk who, in addition to his duties as UI developer served as the de facto UX designer for this front end build

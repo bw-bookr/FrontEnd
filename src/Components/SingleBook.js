@@ -7,6 +7,8 @@ import './singlepage.css';
 
 class SingleBook extends React.Component {
   state = {
+    username: null,
+    random:0,
     book: {
       title: "",
       author: "",
@@ -44,6 +46,7 @@ handleAddReview = (review,rating) => {
 // post to endpoint for reviews. setstate to empty re-render with new review
 console.log("Something:  ", review, rating);
 const token = localStorage.getItem('jwt');
+const username = localStorage.getItem('userName');
 const requestOptions = {
 	headers: {
 		authorization: token,
@@ -51,10 +54,16 @@ const requestOptions = {
 };
 console.log("Got to handleAddReview", token);
 const bookId= this.props.match.params.id
+// This next line has no purpose (and neither does having Random in state). It was merely an attempt to force a re-render after 
+// adding a new Review. So far it doesn't work. But at least the modal closes.
+let random=Math.random(10);
+
 Axios
 .post(`https://bookr-app-backend.herokuapp.com/api/book-review/add_review/${bookId}`, {review,rating}, requestOptions)
-.then(res =>{ this.props.history.push(`/BookList/book/${bookId}`)
-this.forceUpdate()})
+.then(res => { this.props.history.push(`/BookList/book/${bookId}`)
+this.setState({ random : random });
+})
+
 .catch(err => console.log(err));
 }
 
@@ -133,7 +142,7 @@ handleDeleteReview = something => {
   { this.state.reviews.map((rev, index) =>  (
    
      <Row className="border-bottom text-left pt-2" key={rev.id}>
-    { console.log("Rev ID: " , rev.id)}
+    { console.log("Rev ID: " , rev)}
  <Col xs={{size: "auto"}}>
  <h5>{rev.username} </h5> 
  </Col>

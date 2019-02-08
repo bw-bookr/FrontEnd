@@ -44,6 +44,8 @@ class Login extends Component {
       .then(res => {
         console.log(res);
         localStorage.setItem("jwt", res.data.token);
+        localStorage.setItem("userName", res.data.username);
+        console.log("Login Res: ",res.data)
         this.props.history.push("/");
       })
       .catch(err => console.log(err));

@@ -53,10 +53,10 @@ export default class BookList extends React.Component {
         </Navbar>
           
         <Container className="mt-5 pt-5">
-          <Row>
+          <Row className="card-columns">
             {this.state.bookList.map(book => (
-              <Col lg="4" md="6" style={{ marginBottom: "1rem" }} key={book.id}>
-                <Book {...book} />
+              <Col lg="4" md="6" style={{ marginBottom: "1rem" }}>
+                <Book  key={book.id} {...book} />
               </Col>
             ))}
           </Row>
