@@ -41,6 +41,7 @@ class ModalAddReview extends React.Component {
           isOpen={this.state.modal}
           toggle={this.toggle}
           className={this.props.className}
+          onClose={this.toggle}
         >
           <ModalHeader toggle={this.toggle}>Please Submit a Review</ModalHeader>
           <ModalBody>
@@ -68,11 +69,12 @@ class ModalAddReview extends React.Component {
           </ModalBody>
           <ModalFooter>
             <Button
-              type="submit"
-              data-dismiss="modal"
+            
+           
               color="primary"
-              onClick={() =>
-                this.props.clickHandler(this.state.review, this.state.rating)
+              onClick={() => 
+                  
+              {  this.props.clickHandler(this.state.review, this.state.rating);this.toggle()}
               }
              
             >

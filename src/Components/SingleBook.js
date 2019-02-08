@@ -8,6 +8,7 @@ import './singlepage.css';
 class SingleBook extends React.Component {
   state = {
     username: null,
+    random:0,
     book: {
       title: "",
       author: "",
@@ -53,12 +54,14 @@ const requestOptions = {
 };
 console.log("Got to handleAddReview", token);
 const bookId= this.props.match.params.id
+let random=Math.random(10);
+
 Axios
 .post(`https://bookr-app-backend.herokuapp.com/api/book-review/add_review/${bookId}`, {review,rating}, requestOptions)
-.then(res =>{ this.props.history.push(`/BookList/Book/${bookId}`)
-// this.setState({ reviews: [...this.state.reviews,{...res.data, }] })
- this.setState({ username:username })
+.then(res => { this.props.history.push(`/BookList/book/${bookId}`)
+this.setState({ random : random });
 })
+
 .catch(err => console.log(err));
 }
 
