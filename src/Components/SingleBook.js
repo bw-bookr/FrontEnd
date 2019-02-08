@@ -54,6 +54,8 @@ const requestOptions = {
 };
 console.log("Got to handleAddReview", token);
 const bookId= this.props.match.params.id
+// This next line has no purpose (and neither does having Random in state). It was merely an attempt to force a re-render after 
+// adding a new Review. So far it doesn't work. But at least the modal closes.
 let random=Math.random(10);
 
 Axios
