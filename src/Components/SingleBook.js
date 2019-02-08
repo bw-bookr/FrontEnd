@@ -54,7 +54,7 @@ const bookId= this.props.match.params.id
 Axios
 .post(`https://bookr-app-backend.herokuapp.com/api/book-review/add_review/${bookId}`, {review,rating}, requestOptions)
 .then(res =>{ this.props.history.push(`/BookList/book/${bookId}`)
-this.forceUpdate()})
+this.props.history.push('/BookList')});
 .catch(err => console.log(err));
 }
 

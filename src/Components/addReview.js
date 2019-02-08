@@ -1,12 +1,14 @@
 import React from "react";
 import {
   Button,
-  Modal,
+  Input,
   ModalHeader,
+  Modal,
   ModalBody,
-  ModalFooter,
-  Input 
+  ModalFooter
 } from "reactstrap";
+
+
 
 class ModalAddReview extends React.Component {
   constructor(props) {
@@ -42,7 +44,7 @@ class ModalAddReview extends React.Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Please Submit a Review</ModalHeader>
           <ModalBody>
             <Input
               type="text"
@@ -59,18 +61,22 @@ class ModalAddReview extends React.Component {
               value={this.state.review}
               onChange={this.handleInputChange}
             />
-  <Input
+            <Input
               type="number"
               placeholder="Star Rating: (1-5)"
-              
               name="rating"
-           
               onChange={this.handleInputChange}
             />
-
           </ModalBody>
           <ModalFooter>
-            <Button type="submit" data-dismiss="modal" color="primary" onClick= {()=> this.props.clickHandler(this.state.review,this.state.rating)}>
+            <Button
+              type="submit"
+              data-dismiss="modal"
+              color="primary"
+              onClick={() =>
+                this.props.clickHandler(this.state.review, this.state.rating)
+              }
+            >
               Submit
             </Button>
             <Button color="secondary" onClick={this.toggle}>
