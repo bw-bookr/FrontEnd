@@ -74,6 +74,7 @@ https://bookrmarketing1.netlify.com/
 * Jeremy Boggs - Scrum Master
 * Dennis Orbison - Back End Developer
 * Kelli Rae Hanson - Front End Developer
+* Jamie Hall - Front End Developer
 * Joshua Keslar - UI Developer
 * Lukasz Siatka - UI Developer
 * Maksim Vakarchuk - UI Developer
