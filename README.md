@@ -1,7 +1,7 @@
-### Bookr
+# Bookr
 Find your latest read - the easy way
 
-##Getting Started
+## Getting Started
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 ### `yarn start` - but first =>
 
-# Prerequisites
+## Prerequisites
 You will need the following dependencies:
 
     "axios": "^0.18.0",
@@ -25,7 +25,7 @@ You will need the following dependencies:
     "styled-components": "^4.1.3"
 
 
-#Installing
+## Installing
 After forking, clone a copy on your machine with the git clone <repo name> CLI
 
 Runs the app in the development mode.<br>
@@ -40,9 +40,9 @@ You will be taken to the login page upon initialization
 
 We have 3 user names for demo purposes. They are:
 
-`nomadic<br>
-expat<br>
-mutiny`
+* nomadic
+* expat
+* mutiny
 
 The password for all 3 is set to 'pass'
 
@@ -54,33 +54,33 @@ If you absolutely never want to see a book again on the list, use the delete fun
 
 
 
-#Deployment
+## Deployment
 
 You can see our deployment here:
 
 https://bookrmarketing1.netlify.com/
 
-#Built With
-*HTML
-*CSS
-*Styled Components
-*Bootstrap, with Reactstrap and react-bootstrap
-*React
+## Built With
+* HTML
+* CSS
+* Styled Components
+* Bootstrap, with Reactstrap and react-bootstrap
+* React
 
 
 
-#Authors
+## Authors
 
-*Jeremy Boggs - Scrum Master
-*Dennis Orbison - Back End Developer
-*Kelli Rae Hanson - Front End Developer
-*Joshua Keslar - UI Developer
-*Lukasz Siatka - UI Developer
-*Maksim Vakarchuk - UI Developer
+* Jeremy Boggs - Scrum Master
+* Dennis Orbison - Back End Developer
+* Kelli Rae Hanson - Front End Developer
+* Joshua Keslar - UI Developer
+* Lukasz Siatka - UI Developer
+* Maksim Vakarchuk - UI Developer
 
-#License
+## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-#Acknowledgements
+## Acknowledgements
 
 A tip of the hat to Maksim Vakarchuk who, in addition to his duties as UI developer served as the de facto UX designer for this front end build
